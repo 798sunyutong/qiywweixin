@@ -35,7 +35,9 @@ data() {
         ListDatas:[],
         loading:false,
         imgUrl:'',
-        userId:''
+        userId:'',
+        channel:'',
+        companyCode:'',
     }
 },
 components:{
@@ -48,15 +50,26 @@ created() {
     
 },
 methods: {
-  Goto:function(sharePageUrl){
+  Goto:function(item){
     //   图片利用Base64进行编解码，encode是编码，decode是解码
-      this.imgUrl=Base64.encode(sharePageUrl)
+      this.imgUrl=Base64.encode("/telmall/pics/sdfs/TKCXK.pdf")
+      let activeProductInfo=Object.assign({},item,{
+          channel:this.channel,
+          companyCode:this.companyCode
+      })
+      sessionStorage.setItem('activeProductInfo',JSON.stringify(item))
       this.$router.push({
           path:'xiangqingye',
-          query:{
-              url:'rrrr',
-              src: this.imgUrl,
-          }
+        //   新宇修改的
+        userId:this.userId 
+        // 结束
+
+        //   自己写的
+                    //   query:{
+                    //       url:'rrrr',
+                    //       src: this.imgUrl,
+                    //   }
+        // 结束
       })
   } ,
     HtmlList(){
@@ -66,14 +79,27 @@ methods: {
                     userId:this.userId
                 }
             }).then(function(res){
-                if(res.data.data.success==="true"){
-                    _this.ListDatas=res.data.data.info
-                    // 下面的for循环可以单独获取到后台返回来的数组里的某个数据，在此页面中无任何意义
-                    // for(let i=0;i<_this.ListDatas.length;i++){
-                    //     let huokeurl
-                    //     huokeurl=_this.ListDatas[i].sharePageUrl
-                    // }
+                // 新宇修改的
+                let data=res.data
+                if(data.success==='true'){
+                    _this.ListDatas=data.data.info
+                    _this.channel=data.data.channel //渠道
+                    _this.companyCode=data.data.companyCode//公司码
+                }else{
+                    _this.$toast(data.message)
                 }
+                // 结束 
+
+                // 自己写的
+                        // if(res.data.data.success==="true"){
+                        //     _this.ListDatas=res.data.data.info
+                            // 下面的for循环可以单独获取到后台返回来的数组里的某个数据，在此页面中无任何意义
+                            // for(let i=0;i<_this.ListDatas.length;i++){
+                            //     let huokeurl
+                            //     huokeurl=_this.ListDatas[i].sharePageUrl
+                            // }
+                        // }
+                // 结束
             }).catch(function(error){
                 console.log(error)
             })
@@ -85,4 +111,4 @@ methods: {
 
 <style>
 
-</style>
+</style>   
