@@ -50,18 +50,20 @@ created() {
     
 },
 methods: {
-  Goto:function(item){
+  	Goto:function(item){
     //   图片利用Base64进行编解码，encode是编码，decode是解码
-      this.imgUrl=Base64.encode("/telmall/pics/sdfs/TKCXK.pdf")
-      let activeProductInfo=Object.assign({},item,{
-          channel:this.channel,
-          companyCode:this.companyCode
-      })
-      sessionStorage.setItem('activeProductInfo',JSON.stringify(item))
-      this.$router.push({
-          path:'xiangqingye',
+      	this.imgUrl=Base64.encode("/telmall/pics/sdfs/TKCXK.pdf")
+      	let activeProductInfo=Object.assign({},item,{
+          	channel:this.channel,
+          	companyCode:this.companyCode
+      	})
+      	sessionStorage.setItem('activeProductInfo',JSON.stringify(item))
+      	this.$router.push({
+          	path:'xiangqingye',
         //   新宇修改的
-        userId:this.userId 
+            query:{
+            userId:this.userId ,
+        },
         // 结束
 
         //   自己写的
@@ -70,7 +72,7 @@ methods: {
                     //       src: this.imgUrl,
                     //   }
         // 结束
-      })
+      	})
   } ,
     HtmlList(){
         let _this=this
@@ -103,9 +105,9 @@ methods: {
             }).catch(function(error){
                 console.log(error)
             })
-    }
+    	}
     
-},
+	},
 }
 </script>
 
