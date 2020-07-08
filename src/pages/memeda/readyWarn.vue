@@ -36,6 +36,11 @@
               </el-table-column>
             </el-table>
         </div>
+        <div class="div1">
+          <div class="mask">
+              <div class="div2">我是div顶部</div>
+          </div>
+        </div>
     </div>
 </template>
 <script>
@@ -59,24 +64,39 @@ export default {
 }
 </script>
 <style scoped>
-    .bottom .bottomTitle {
-        font-size: 22px;
-        color: #000;
-        line-height: 38px;
-        padding-left: 20px;
+  .div1{
+        width: 400px;
+        height:400px;
+        background: #ccc;
+        position: relative;
     }
-    .bottom .bottomTable {
-        flex: 1;
-        flex-shrink: 1;
-        height: 0;
-        /* overflow-y:auto; */
-        /* background-color: #fff; */
+    .div2{
+        width: 200px;
+        height: 400px;
+        background: #0099CC;
+        position: absolute;
+        left: 0;
+        bottom: 0;
     }
-    .bottom >>> .tableSelf {
-        height: 100% !important;
-        overflow-y:auto;
+    .mask{
+        width: 200px;
+        height: 400px; /* 高度是变量 */
+        position: absolute;
+        left: 0;
+        top: 0; /* top是变量 */
     }
-  .bottom >>> .el-table {
-        border: 1px solid #242b42;
-    } 
+    .mask{
+     animation: animate 5s ease infinite;
+     overflow: hidden;
+      }
+      @keyframes animate{
+          from {
+                height: 0px;
+              top : 400px;
+          }
+          to {
+              height: 400px;
+              top : 0px;
+          }
+      }
 </style>

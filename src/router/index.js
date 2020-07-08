@@ -21,21 +21,21 @@ export default new Router({
     //     title:'详情'
     //   }
     // }
-    {
-      path: '/liebiaoye',
-      name: 'liebiaoye',
-      component: liebiaoye,
-      meta:{
-        title:'列表'
-      }
-    },
-    {
-      path: '/xiangqingye',
-      name: 'xiangqingye',
-      component: xiangqingye,
-      meta:{
-        title:'详情'
-      }
-    }
+    // {
+    //   path: '/liebiaoye',
+    //   name: 'liebiaoye',
+    //   component: liebiaoye,
+    //   meta:{
+    //     title:'列表'
+    //   }
+    // },
+    // {
+    //   path: '/xiangqingye',
+    //   name: 'xiangqingye',
+    //   component: xiangqingye,
+    //   meta:{
+    //     title:'详情'
+    //   }
+    // }
   ]
 })
