@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="red" style="color: brown; font-size: 200px;">
+        kkl
+    </div>
+</body>
+<script>
+    
+var obj = {
+  foo: function () { console.log(this.bar),console.log(this) },
+    bar: 1
+};
+
+var foo = obj.foo;
+var bar = 2;
+
+obj.foo() //1   bar,foo:function
+foo() //2  window
+</script>
+</html>
