@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wd {
+            width: 500px;
+            height: 500px;
+            /* background-color: violet; */
+        }
+        .wd .wz{
+            /* color: yellow; */
+        }
+        .wd .sz{
+            width: 480px;
+            height: 80px;
+            /* background-color: pink; */
+        }
+    </style>
+</head>
+<body>
+    <div class="wd">
+        <h1 class="wz">听说你是个函数</h1>
+        <input placeholder="我只是用来做练习的" class="sz">
+        <button onclick="couhe('你','扑通')">叫祖宗</button>
+        <div>
+            <span>我是一个dome操作=one * two</span>
+            <span id="dcz"></span>
+        </div>
+    </div>
+    <script>
+        function couhe(name,isno){
+            alert(name+'拍了拍我的腿'+isno+'跪下来了，叫一声：“祖宗”')
+        }
+        function caozuo(one,two){
+            return(one*two)
+        }
+        document.getElementById('dcz').innerHTML=caozuo(3,4)
+    </script>
+</body>
+</html>
