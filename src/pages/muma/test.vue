@@ -1,14 +1,14 @@
 <template>
   <div class="content">
-    <div>gkhlhklhkljhkljhlkjhkljhkljh</div>
+    <!-- <div>gkhlhklhkljhkljhlkjhkljhkljh</div> -->
     <!-- <iframe src="../../static/Cron/index.htm" frameborder="0" ></iframe> -->
-    <div class="title" :class="{active:isShow == index}" v-for="(item,index) in dataList1" :key="index">
+    <div class="title" :class="{active:isShow == index,active1:isShow1}" v-for="(item,index) in dataList1" :key="index">
       <div class="top" @click="clickName(index)">{{item.name}}</div>
       <div class="center" v-show="isShow == index">
         <div style="height:100%">{{item.content}}</div>
       </div>
     </div>
-    <div>afdsaldfhasjkdhfsahkdfasjhdfisahdfnlasdfiusjdjflsidufksdfjlas</div>
+    <!-- <div>afdsaldfhasjkdhfsahkdfasjhdfisahdfnlasdfiusjdjflsidufksdfjlas</div> -->
   </div>
 </template>
 <script>
@@ -24,7 +24,8 @@ export default {
         {name:"法术和2",content:"法术和2萨芬萨芬和速度话啊说得好u回答送到和萨芬萨芬和速度话啊说得好u回答送到和萨芬萨芬和速度话啊说得好u回答送到和srg",id:4},
       ],
       isShow:-1,
-      dataList1: []
+      dataList1: [],
+      isShow1:false,
     }
   },
   mounted(){
@@ -38,12 +39,16 @@ export default {
         this.dataList1.splice(0,index);
         this.isShow = 0;
         // this.dataList1 = this.dataList;
+        if(this.dataList1.length==1){
+          this.isShow1=true
+        }
       }else{
-        this.dataList1=[]
-        this.dataList.forEach((item)=>{
-          this.dataList1.push(item)
-        })
-        this.isShow=this.isShow==index?-1:index;
+         this.isShow1=false
+          this.dataList1=[]
+          this.dataList.forEach((item)=>{
+            this.dataList1.push(item)
+          })
+          this.isShow=this.isShow==index?-1:index;
       }
     }
   }
@@ -75,5 +80,8 @@ export default {
 }
 .active {
   height: 90%;
+}
+.active1{
+  height: 20%;
 }
 </style>
