@@ -6,7 +6,7 @@ import HelloWorld from '@/components/HelloWorld'
 import ReadyWarn from '@/pages/memeda/ReadyWarn'
 import Huadong from '@/pages/muma/huadong'
 import Test from '@/pages/muma/test'
-
+import yuanyouwaishu1 from '@/pages/yuanyouwaishu/yuanyouwaishu1'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +34,7 @@ export default new Router({
         name: 'test',
         component: Test
       },
+      
     // {
     //   path: '/liebiaoye',
     //   name: 'liebiaoye',
@@ -50,5 +51,13 @@ export default new Router({
     //     title:'详情'
     //   }
     // }
+    {
+      path: '/yuanyouwaishu1',
+      name: 'yuanyouwaishu1',
+      component: yuanyouwaishu1,
+      meta:{
+        title:'万英'
+      }
+    },
   ]
 })
